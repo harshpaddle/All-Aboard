@@ -34,10 +34,6 @@ $("#train-form").on("submit", function (event) {
 database.ref().on("child_added", function (childSnapshot) {
   var trainData = childSnapshot.val();
 
-  // var startDateConverted = moment(employeeData.startDate, "YYYY-MM-DD");
-  // var totalMonthsWorked = moment().diff(startDateConverted, "months");
-
-
   var frequency = trainData.frequency;
 
   var startTime = trainData.startTime;
@@ -70,10 +66,10 @@ database.ref().on("child_added", function (childSnapshot) {
   var $tdNextArrival = $("<td>").text(nextTrain);
   var $tdMinutesAway = $("<td>").text(tMinutesTillNextTrain);
 
-  // append td tags to table row you created above
+
   $tr.append($tdName, $tdDestination, $tdFrequency, $tdNextArrival, $tdMinutesAway);
 
-  // lastly, append entire table row you created to $("tbody")
+
   $("tbody").append($tr);
 
 })
